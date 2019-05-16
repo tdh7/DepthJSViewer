@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Title</title>
+
+  <!--<link rel="stylesheet" type="text/css" href="index.css">-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.1/pixi.min.js"></script>
+  <script type="text/javascript" src="lodash.min.js"></script>
+  <script type="text/javascript" src="modernizr.js"></script>
+  <script type="text/javascript" src="pixi/pixi.dev.js"></script>
+  <script type="text/javascript" src="pixi/ColorMatrixFilter2.js"></script>
+  <script type="text/javascript" src="pixi/DepthPerspectiveFilter.js"></script>
+  <script type="text/javascript" src="pixi/DepthDisplacementFilter.js"></script>
+  <script type="text/javascript" src="pixi/utils.js"></script>
+  <script type="text/javascript" src="pixi/DepthyViewer.js"></script>
+
+  <style type="text/css">
+    html, body {
+      margin: 0px;
+      padding: 0px;
+      background: #999;
+      height: 100%;
+    }
+
+
+    canvas {
+      display : block;
+      margin : 0 auto;
+      border: black solid 0px;
+      /*width: 100%;*/
+      height:100%;
+    }
+
+    canvas.drag {
+
+    }
+  </style>
+
+</head>
+<body>
+
+<!--<canvas id="myCanvas"></canvas>-->
+
+<script type="text/javascript">
+  //console.clear();
+ var options = _.extend({}, DepthyViewer.defaultOptions, {
+    size: {width:document.body.clientWidth,height:document.body.clientHeight},
+    hoverElement: 'body',
+    fit: 'contain',
+    depthScale: 2,
+    quality: 5,
+    depthFocus: 1,
+    depthBlurSize: 0,
+    //orient: 2,
+    //alwaysRender: true,
+  });
+
+ var viewer = new DepthyViewer(document.body, options);
+ viewer.setImage('pics/tunnel.jpg');
+ viewer.setDepthmap('pics/tunnel-depth.jpg');
+
+ window.addEventListener("resize", function(){
+  viewer.setOptions({size: {width:document.body.clientWidth,height:document.body.clientHeight}})
+ });
+
+
+
+</script>
+
+</body>
+
+</html>
