@@ -41,23 +41,23 @@
 
 <!--<canvas id="myCanvas"></canvas>-->
 
-<script type="text/javascript">
-  //console.clear();
- var options = _.extend({}, DepthyViewer.defaultOptions, {
-    size: {width:document.body.clientWidth,height:document.body.clientHeight},
-    hoverElement: 'body',
-    fit: 'contain',
-    depthScale: .3,
+var options = _.extend({}, DepthyViewer.defaultOptions, {
+    // size: {width:document.body.clientWidth,height:document.body.clientHeight},
+    // hoverElement: 'body',
+    // fit: 'cover',
+    // sizeDivisible: 2,
+    depthScale: .5,
     quality: 5,
     depthFocus: 1,
     depthBlurSize: 0,
-    //orient: 2,
+    // upscale: .5,
+    orient: 0,
     //alwaysRender: true,
   });
 
  var viewer = new DepthyViewer(document.body, options);
- viewer.setImage('pics/img-1.jpg');
- viewer.setDepthmap('pics/img-depth.png');
+ viewer.setImage('pics/TJU.jpg');
+ viewer.setDepthmap('pics/TJU-depth1.jpg');
 
  window.addEventListener("resize", function(){
   viewer.setOptions({size: {width:document.body.clientWidth,height:document.body.clientHeight}})
