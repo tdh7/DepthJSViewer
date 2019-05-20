@@ -48,7 +48,7 @@
     // hoverElement: 'body',
     // fit: 'cover',
     // sizeDivisible: 2,
-    depthScale: .5,
+    depthScale: 1,
     quality: 5,
     depthFocus: 1,
     depthBlurSize: 0,
@@ -58,8 +58,8 @@
   });
 
  var viewer = new DepthyViewer(document.body, options);
- viewer.setImage('pics/TJU.jpg');
- viewer.setDepthmap('pics/TJU-depth1.jpg');
+ viewer.setImage('pics/TJU-small.jpg');
+ viewer.setDepthmap('pics/TJU-depth1-small.jpg');
 
  window.addEventListener("resize", function(){
   viewer.setOptions({size: {width:document.body.clientWidth,height:document.body.clientHeight}})
